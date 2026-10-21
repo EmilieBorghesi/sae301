@@ -67,6 +67,18 @@ function crea_legacy_add_to_cart_text( $text, $product ) {
 }
 add_filter( 'woocommerce_product_add_to_cart_text', 'crea_legacy_add_to_cart_text', 10, 2 );
 
+function crea_legacy_variable_price( $price, $product ) {
+	$min = $product->get_variation_price( 'min', true );
+	$max = $product->get_variation_price( 'max', true );
+
+	if ( $min === $max ) {
+		return $price;
+	}
+
+	return sprintf( '<span class="price__from">%1$s</span> %2$s', esc_html__( 'Dès', 'crea-legacy' ), wc_price( $min ) );
+}
+add_filter( 'woocommerce_variable_price_html', 'crea_legacy_variable_price', 10, 2 );
+
 function crea_legacy_related_args( $args ) {
 	$args['posts_per_page'] = 3;
 	$args['columns']        = 3;
@@ -79,3 +91,58 @@ function crea_legacy_related_heading() {
 	return __( 'Produits similaires', 'crea-legacy' );
 }
 add_filter( 'woocommerce_product_related_products_heading', 'crea_legacy_related_heading' );
+
+function crea_legacy_variation_options( $html, $args ) {
+	$product   = $args['product'];
+	$attribute = $args['attribute'];
+	$options   = $args['options'];
+
+	if ( empty( $options ) && $product ) {
+		$attributes = $product->get_variation_attributes();
+		$options    = $attributes[ $attribute ] ?? array();
+	}
+
+	if ( empty( $options ) || ! $product ) {
+		return $html;
+	}
+
+	$select_id = $args['id'] ? $args['id'] : sanitize_title( $attribute );
+	$choices   = array();
+
+	if ( taxonomy_exists( $attribute ) ) {
+		foreach ( wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) ) as $term ) {
+			if ( in_array( $term->slug, $options, true ) ) {
+				$choices[ $term->slug ] = apply_filters( 'woocommerce_variation_option_name', $term->name, $term, $attribute, $product );
+			}
+		}
+	} else {
+		foreach ( $options as $option ) {
+			$choices[ $option ] = apply_filters( 'woocommerce_variation_option_name', $option, null, $attribute, $product );
+		}
+	}
+
+	if ( ! $choices ) {
+		return $html;
+	}
+
+	$chips = '';
+
+	foreach ( $choices as $value => $label ) {
+		$chips .= sprintf(
+			'<label class="option"><input class="option__input" type="radio" name="crea-%1$s" value="%2$s"%3$s><span class="option__label">%4$s</span></label>',
+			esc_attr( $select_id ),
+			esc_attr( $value ),
+			checked( (string) $args['selected'], (string) $value, false ),
+			esc_html( $label )
+		);
+	}
+
+	return sprintf(
+		'<div class="variation-field">%1$s<div class="options__list" role="radiogroup" aria-label="%2$s" data-select="%3$s">%4$s</div></div>',
+		$html,
+		esc_attr( wc_attribute_label( $attribute, $product ) ),
+		esc_attr( $select_id ),
+		$chips
+	);
+}
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'crea_legacy_variation_options', 10, 2 );
