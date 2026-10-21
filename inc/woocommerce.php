@@ -21,6 +21,9 @@ function crea_legacy_woocommerce_hooks() {
 	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 	add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 25 );
 	add_action( 'woocommerce_before_single_product', 'crea_legacy_back_link', 5 );
+
+	add_action( 'woocommerce_thankyou', 'crea_legacy_order_tracking', 5 );
+	add_action( 'woocommerce_thankyou', 'crea_legacy_order_actions', 30 );
 }
 add_action( 'init', 'crea_legacy_woocommerce_hooks' );
 
@@ -167,6 +170,56 @@ function crea_legacy_remove_link( $link, $cart_item_key ) {
 	);
 }
 add_filter( 'woocommerce_cart_item_remove_link', 'crea_legacy_remove_link', 10, 2 );
+
+function crea_legacy_received_order() {
+	$order = wc_get_order( absint( get_query_var( 'order-received' ) ) );
+	$key   = isset( $_GET['key'] ) ? wc_clean( wp_unslash( $_GET['key'] ) ) : '';
+
+	if ( ! $order || ! $key || ! hash_equals( $order->get_order_key(), $key ) ) {
+		return null;
+	}
+
+	return $order;
+}
+
+function crea_legacy_order_received_title( $title, $id = 0 ) {
+	if ( is_admin() || ! is_order_received_page() || ! in_the_loop() || (int) $id !== wc_get_page_id( 'checkout' ) ) {
+		return $title;
+	}
+
+	$order = crea_legacy_received_order();
+
+	if ( ! $order || ! $order->get_billing_first_name() ) {
+		return $title;
+	}
+
+	return sprintf( __( 'Merci %s !', 'crea-legacy' ), esc_html( $order->get_billing_first_name() ) );
+}
+add_filter( 'the_title', 'crea_legacy_order_received_title', 20, 2 );
+
+function crea_legacy_order_received_text( $text, $order ) {
+	if ( ! $order ) {
+		return $text;
+	}
+
+	return sprintf(
+		__( 'Ta commande n° %s est validée. Un e-mail de confirmation vient de partir.', 'crea-legacy' ),
+		esc_html( $order->get_order_number() )
+	);
+}
+add_filter( 'woocommerce_thankyou_order_received_text', 'crea_legacy_order_received_text', 10, 2 );
+
+function crea_legacy_order_tracking( $order_id ) {
+	$order = wc_get_order( $order_id );
+
+	if ( $order ) {
+		get_template_part( 'template-parts/order/tracking', null, array( 'order' => $order ) );
+	}
+}
+
+function crea_legacy_order_actions() {
+	get_template_part( 'template-parts/order/actions' );
+}
 
 function crea_legacy_hidden_field( $field ) {
 	if ( false === strpos( $field, 'type="hidden"' ) ) {
