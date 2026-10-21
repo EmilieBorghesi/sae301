@@ -1,0 +1,92 @@
+{
+    "key": "group_crea_fees",
+    "title": "Frais de préparation",
+    "fields": [
+        {
+            "key": "field_crea_fee_label",
+            "label": "Libellé",
+            "name": "crea_fee_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ajoutés automatiquement quand le sous-total du panier est inférieur au seuil. Mets 0 comme montant pour les désactiver.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Frais de préparation",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_crea_fee_amount",
+            "label": "Montant",
+            "name": "crea_fee_amount",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "1.5",
+            "min": 0,
+            "step": 0.01,
+            "append": "€",
+            "max": "",
+            "placeholder": "",
+            "prepend": ""
+        },
+        {
+            "key": "field_crea_fee_threshold",
+            "label": "Seuil",
+            "name": "crea_fee_threshold",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Pas de frais à partir de ce montant.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 25,
+            "min": 0,
+            "step": 0.01,
+            "append": "€",
+            "max": "",
+            "placeholder": "",
+            "prepend": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "crea-reglages"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Frais ajoutés au panier sous un seuil de commande.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792629666
+}
