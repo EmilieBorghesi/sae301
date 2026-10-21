@@ -221,6 +221,30 @@ function crea_legacy_order_actions() {
 	get_template_part( 'template-parts/order/actions' );
 }
 
+function crea_legacy_upsells_heading() {
+	return __( 'Tu vas aimer aussi', 'crea-legacy' );
+}
+add_filter( 'woocommerce_product_upsells_products_heading', 'crea_legacy_upsells_heading' );
+
+function crea_legacy_cross_sells_heading() {
+	return __( 'Pour compléter ta commande', 'crea-legacy' );
+}
+add_filter( 'woocommerce_product_cross_sells_products_heading', 'crea_legacy_cross_sells_heading' );
+
+function crea_legacy_upsell_args( $args ) {
+	$args['posts_per_page'] = 3;
+	$args['columns']        = 3;
+
+	return $args;
+}
+add_filter( 'woocommerce_upsell_display_args', 'crea_legacy_upsell_args', 20 );
+
+function crea_legacy_cross_sells_columns() {
+	return 3;
+}
+add_filter( 'woocommerce_cross_sells_columns', 'crea_legacy_cross_sells_columns', 20 );
+add_filter( 'woocommerce_cross_sells_total', 'crea_legacy_cross_sells_columns', 20 );
+
 function crea_legacy_hidden_field( $field ) {
 	if ( false === strpos( $field, 'type="hidden"' ) ) {
 		return $field;
