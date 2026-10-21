@@ -1,0 +1,73 @@
+{
+    "key": "taxonomy_crea_moment",
+    "title": "Moments",
+    "menu_order": 0,
+    "active": true,
+    "taxonomy": "crea_moment",
+    "object_type": [
+        "product"
+    ],
+    "advanced_configuration": true,
+    "import_source": "",
+    "import_date": "",
+    "labels": {
+        "name": "Moments",
+        "singular_name": "Moment",
+        "menu_name": "Moments",
+        "all_items": "Tous les moments",
+        "edit_item": "Modifier le moment",
+        "view_item": "Voir le moment",
+        "update_item": "Mettre à jour le moment",
+        "add_new_item": "Ajouter un moment",
+        "new_item_name": "Nom du moment",
+        "search_items": "Rechercher un moment",
+        "popular_items": "Moments les plus utilisés",
+        "separate_items_with_commas": "Sépare les moments par des virgules",
+        "add_or_remove_items": "Ajouter ou retirer des moments",
+        "choose_from_most_used": "Choisir parmi les plus utilisés",
+        "not_found": "Aucun moment",
+        "no_terms": "Aucun moment",
+        "back_to_items": "← Retour aux moments"
+    },
+    "description": "Classe les produits selon le moment de la journée, indépendamment des catégories.",
+    "capabilities": {
+        "manage_terms": "manage_categories",
+        "edit_terms": "manage_categories",
+        "delete_terms": "manage_categories",
+        "assign_terms": "edit_posts"
+    },
+    "public": true,
+    "publicly_queryable": true,
+    "hierarchical": false,
+    "show_ui": true,
+    "show_in_menu": true,
+    "show_in_nav_menus": true,
+    "show_in_rest": true,
+    "rest_base": "",
+    "rest_namespace": "wp\/v2",
+    "rest_controller_class": "WP_REST_Terms_Controller",
+    "show_tagcloud": true,
+    "show_in_quick_edit": true,
+    "show_admin_column": true,
+    "rewrite": {
+        "permalink_rewrite": "custom_permalink",
+        "slug": "moment",
+        "with_front": false,
+        "rewrite_hierarchical": false
+    },
+    "query_var": "taxonomy_key",
+    "query_var_name": "",
+    "default_term": {
+        "default_term_enabled": false,
+        "default_term_name": "",
+        "default_term_slug": "",
+        "default_term_description": ""
+    },
+    "sort": null,
+    "meta_box": "default",
+    "meta_box_cb": "",
+    "meta_box_sanitize_cb": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792629666
+}
