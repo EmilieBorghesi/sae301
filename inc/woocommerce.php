@@ -146,3 +146,40 @@ function crea_legacy_variation_options( $html, $args ) {
 	);
 }
 add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'crea_legacy_variation_options', 10, 2 );
+
+function crea_legacy_remove_link( $link, $cart_item_key ) {
+	$item = WC()->cart->get_cart_item( $cart_item_key );
+
+	if ( ! $item ) {
+		return $link;
+	}
+
+	$product = $item['data'];
+
+	return sprintf(
+		'<a href="%1$s" class="remove remove--text" aria-label="%2$s" data-product_id="%3$s" data-product_sku="%4$s" data-cart_item_key="%5$s">%6$s</a>',
+		esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+		esc_attr( sprintf( __( 'Retirer %s du panier', 'crea-legacy' ), wp_strip_all_tags( $product->get_name() ) ) ),
+		esc_attr( $item['product_id'] ),
+		esc_attr( $product->get_sku() ),
+		esc_attr( $cart_item_key ),
+		esc_html__( 'Retirer du panier', 'crea-legacy' )
+	);
+}
+add_filter( 'woocommerce_cart_item_remove_link', 'crea_legacy_remove_link', 10, 2 );
+
+function crea_legacy_hidden_field( $field ) {
+	if ( false === strpos( $field, 'type="hidden"' ) ) {
+		return $field;
+	}
+
+	$field = preg_replace( '/\s(placeholder|readonly)="[^"]*"/', '', $field );
+
+	return preg_replace( '/<label for="[^"]*"/', '<label', $field );
+}
+add_filter( 'woocommerce_form_field', 'crea_legacy_hidden_field' );
+
+function crea_legacy_checkout_heading() {
+	printf( '<h2 class="visually-hidden">%s</h2>', esc_html__( 'Tes informations', 'crea-legacy' ) );
+}
+add_action( 'woocommerce_checkout_before_customer_details', 'crea_legacy_checkout_heading' );
