@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_crea_reglages",
+    "title": "Réglages du site",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Réglages du site",
+    "menu_slug": "crea-reglages",
+    "parent_slug": "none",
+    "advanced_configuration": true,
+    "icon_url": "",
+    "menu_title": "Réglages du site",
+    "position": 58,
+    "redirect": false,
+    "description": "Page Click & Collect, liens du pied de page, retrait en boutique et frais de préparation.",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-store"
+    },
+    "update_button": "Enregistrer",
+    "updated_message": "Réglages enregistrés",
+    "capability": "manage_woocommerce",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": false,
+    "modified": 1792629666
+}

@@ -1,0 +1,103 @@
+{
+    "key": "group_crea_site",
+    "title": "Pages et liens",
+    "fields": [
+        {
+            "key": "field_crea_click_collect_page",
+            "label": "Page Click & Collect",
+            "name": "crea_click_collect_page",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Page ouverte par les boutons « Je commande » et « Retour à la carte ».",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "return_format": "id",
+            "allow_null": 1,
+            "ui": 1,
+            "taxonomy": [],
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_crea_access_url",
+            "label": "Lien du bouton « Accès franchisé »",
+            "name": "crea_access_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_crea_facebook_url",
+            "label": "Lien Facebook",
+            "name": "crea_facebook_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_crea_instagram_url",
+            "label": "Lien Instagram",
+            "name": "crea_instagram_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "crea-reglages"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Réglages du site : page Click & Collect et liens du pied de page.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792629666
+}

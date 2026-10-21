@@ -1,0 +1,107 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --purple-900: #2D2850;
+  --gray-300: #E5E5E5;
+  --gray-500: #B8B8B8;
+  --pink-100: #F9D6D6;
+  --pink-300: #F39D9D;
+  --pink-600: #CC3366;
+
+  --fg: var(--white);
+  --fg-sec: var(--pink-300);
+  --bg: var(--black);
+  --bg-sec: var(--purple-900);
+  --placeholders: var(--gray-300);
+  --focus: var(--pink-600);
+  --focus-on-dark: var(--pink-300);
+
+  --font-title: "Eighty Miles", "Arial Black", sans-serif;
+  --font-buttons: "Raleway", Arial, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  --size-small: 0.875rem;
+  --size-medium: clamp(0.9375rem, 0.916rem + 0.094vw, 1rem);
+  --size-large: clamp(1rem, 0.912rem + 0.376vw, 1.25rem);
+  --size-xlarge: clamp(1.125rem, 0.817rem + 1.315vw, 2rem);
+  --size-2xlarge: clamp(1.5rem, 0.972rem + 2.254vw, 3rem);
+  --size-3xlarge: clamp(2.25rem, 1.634rem + 2.629vw, 4rem);
+  --size-label: 1.125rem;
+  --size-nav: clamp(1.125rem, 0.993rem + 0.563vw, 1.5rem);
+  --size-diapo: clamp(1.5rem, 1.236rem + 1.127vw, 2.25rem);
+
+  --line-auto: 1.2;
+  --line-body: 1.1;
+  --line-text: 1.4;
+  --tracking-title: 0.09em;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 0.625rem;
+  --space-m: 1rem;
+  --space-l: 1.25rem;
+  --space-button: 1.5625rem;
+  --space-xl: 1.875rem;
+  --space-2xl: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+  --space-3xl: clamp(2.5rem, 1.62rem + 3.756vw, 5rem);
+  --gutter: clamp(1rem, 0.296rem + 3.005vw, 3rem);
+
+  --stroke-thin: 1px;
+  --stroke-medium: 3px;
+  --stroke-bold: 4px;
+
+  --radius-soft: 5px;
+  --radius-image: 10px;
+  --radius-pill: 999px;
+  --radius-round: 50%;
+
+  --target: 2.75rem;
+  --field-height: 3rem;
+  --field-width: 26.875rem;
+  --promo-width: 22.8125rem;
+  --card-width: 21.875rem;
+  --thumb-size: 15.625rem;
+  --card-media: 18.75rem;
+  --product-media: 37.5rem;
+  --cart-media: 20.3125rem;
+  --ratio-product: 600 / 410;
+  --ratio-cart: 325 / 221;
+  --swatch-height: 6rem;
+  --type-meta: 14rem;
+  --icon-s: 0.875rem;
+  --icon-m: 1.5rem;
+  --icon-l: 1.5625rem;
+  --icon-xl: 2.75rem;
+  --icon-image: 5rem;
+  --radio-size: 1.5rem;
+  --radio-dot: 0.75rem;
+  --step-dot: 2.5rem;
+  --social-size: clamp(4rem, 3.296rem + 3.005vw, 6rem);
+  --social-icon: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+  --logo-width: 20.8125rem;
+  --logo-header: clamp(8rem, 6.239rem + 7.512vw, 13rem);
+  --content-width: 34rem;
+  --intro-width: 48rem;
+  --grid-min: min(100%, 17rem);
+  --sample-min: min(100%, 20rem);
+  --container: 90rem;
+
+  --duration: 150ms;
+
+  --logo-header-max: clamp(8rem, 4.479rem + 15.023vw, 18rem);
+  --logo-footer: clamp(12rem, 9.183rem + 12.019vw, 20rem);
+  --header-icon: clamp(2rem, 1.736rem + 1.127vw, 2.75rem);
+  --header-height: clamp(4.5rem, 2.915rem + 6.761vw, 9rem);
+  --content-max: 70rem;
+  --narrow-max: 50rem;
+  --summary-width: 24rem;
+  --tile-size: 12.5rem;
+  --cart-thumb: clamp(6rem, 1.775rem + 18.028vw, 18rem);
+  --card-gap: clamp(1rem, -0.761rem + 7.512vw, 6rem);
+  --qty-width: 5.5rem;
+  --overlay-index: 50;
+}
