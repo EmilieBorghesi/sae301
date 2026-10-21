@@ -1,0 +1,48 @@
+{
+    "key": "group_crea_pickup",
+    "title": "Retrait en boutique",
+    "fields": [
+        {
+            "key": "field_crea_pickup_instructions",
+            "label": "Instructions pour le retrait",
+            "name": "crea_pickup_instructions",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Affichées au checkout quand le client choisit le retrait en boutique, sur la page de confirmation et dans les e-mails de commande. Une ligne par consigne.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Présente-toi au comptoir avec ton numéro de commande.\nTa commande est prête 20 minutes après validation.\nTu as jusqu'à la fermeture pour la récupérer.",
+            "rows": 4,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "crea-reglages"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Instructions de retrait affichées au checkout, sur la page de confirmation et dans les e-mails.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792629666
+}
