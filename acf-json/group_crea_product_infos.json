@@ -1,0 +1,232 @@
+{
+    "key": "group_crea_product_infos",
+    "title": "Infos produit",
+    "fields": [
+        {
+            "key": "field_crea_composition",
+            "label": "Composition",
+            "name": "crea_composition",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Ingrédients principaux, séparés par des virgules.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_crea_allergens",
+            "label": "Allergènes",
+            "name": "crea_allergens",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gluten": "Gluten",
+                "lait": "Lait",
+                "oeufs": "Œufs",
+                "poisson": "Poisson",
+                "fruits": "Fruits à coque",
+                "soja": "Soja",
+                "sesame": "Sésame",
+                "moutarde": "Moutarde",
+                "celeri": "Céleri",
+                "sulfites": "Sulfites"
+            },
+            "layout": "horizontal",
+            "return_format": "array",
+            "default_value": [],
+            "allow_custom": 0,
+            "save_custom": 0,
+            "toggle": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
+            "key": "field_crea_nutrition",
+            "label": "Valeurs nutritionnelles (par portion)",
+            "name": "crea_nutrition",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_crea_nutrition_energie",
+                    "label": "Énergie",
+                    "name": "energie",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "kcal",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                },
+                {
+                    "key": "field_crea_nutrition_lipides",
+                    "label": "Matières grasses",
+                    "name": "lipides",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "g",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                },
+                {
+                    "key": "field_crea_nutrition_glucides",
+                    "label": "Glucides",
+                    "name": "glucides",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "g",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                },
+                {
+                    "key": "field_crea_nutrition_sucres",
+                    "label": "dont sucres",
+                    "name": "sucres",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "g",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                },
+                {
+                    "key": "field_crea_nutrition_proteines",
+                    "label": "Protéines",
+                    "name": "proteines",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "g",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                },
+                {
+                    "key": "field_crea_nutrition_sel",
+                    "label": "Sel",
+                    "name": "sel",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 0,
+                    "step": 0.1,
+                    "append": "g",
+                    "default_value": "",
+                    "max": "",
+                    "placeholder": "",
+                    "prepend": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "Composition, allergènes et valeurs nutritionnelles affichés sur la fiche produit, avant le prix.",
+    "show_in_rest": false,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792629666
+}
