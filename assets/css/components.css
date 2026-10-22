@@ -494,7 +494,7 @@
   font-weight: var(--weight-medium);
   line-height: var(--line-auto);
   color: var(--black);
-  background-color: var(--pink-100);
+  background-color: var(--fg);
   border-radius: var(--radius-soft);
 }
 

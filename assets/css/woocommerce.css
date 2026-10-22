@@ -626,9 +626,13 @@
 .crea table.shop_table td {
   padding: var(--space-m) 0;
   text-align: left;
-  background-color: transparent;
   border: 0;
   border-bottom: var(--stroke-thin) solid var(--bg-sec);
+}
+
+.crea table.shop_table:not(.has-background) th,
+.crea table.shop_table:not(.has-background) td {
+  background-color: transparent;
 }
 
 .crea table.cart,
@@ -721,8 +725,8 @@
 }
 
 .crea .variation {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   margin: var(--space-2xs) 0 0;
   gap: 0 var(--space-2xs);
   font-size: var(--size-small);
@@ -767,9 +771,11 @@
   align-self: start;
 }
 
-.crea table.cart a.remove {
+.crea table.cart td.product-remove a.remove {
+  position: static;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: auto;
   height: auto;
   min-height: var(--target);
@@ -788,13 +794,13 @@
   border-radius: 0;
 }
 
-.crea table.cart a.remove:hover {
+.crea table.cart td.product-remove a.remove:hover {
   color: var(--bg);
   background-color: var(--pink-300);
   border-color: var(--pink-300);
 }
 
-.crea table.cart a.remove::before {
+.crea table.cart td.product-remove a.remove::before {
   display: none;
   content: none;
 }
@@ -861,17 +867,57 @@
   border-bottom: var(--stroke-thin) solid var(--bg-sec);
 }
 
+.crea .cart_totals table.shop_table,
+.crea .cart_totals table.shop_table tbody,
+.crea #order_review table.shop_table,
+.crea #order_review table.shop_table tbody,
+.crea #order_review table.shop_table tfoot {
+  display: block;
+}
+
+.crea .cart_totals table.shop_table tr,
+.crea #order_review table.shop_table tr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--space-l) 0;
+  gap: var(--space-s) var(--space-m);
+  border-bottom: var(--stroke-thin) solid var(--bg-sec);
+}
+
+.crea .cart_totals table.shop_table th,
+.crea .cart_totals table.shop_table td,
+.crea #order_review table.shop_table th,
+.crea #order_review table.shop_table td {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+
+.crea .cart_totals table.shop_table td::before {
+  display: none;
+}
+
+.crea #order_review table.shop_table .product-name {
+  flex: 1 1 0;
+}
+
 .crea .cart_totals table.shop_table th,
 .crea .cart_totals table.shop_table td,
 .crea #order_review table.shop_table tfoot th,
 .crea #order_review table.shop_table tfoot td,
 .crea .woocommerce-order-details table.shop_table tfoot th,
 .crea .woocommerce-order-details table.shop_table tfoot td {
-  padding: var(--space-l) 0;
   font-family: var(--font-buttons);
   font-size: var(--size-small);
   font-weight: var(--weight-bold);
   text-transform: uppercase;
+}
+
+.crea .woocommerce-order-details table.shop_table tfoot th,
+.crea .woocommerce-order-details table.shop_table tfoot td {
+  padding: var(--space-l) 0;
 }
 
 .crea .cart_totals table.shop_table td,
@@ -882,20 +928,46 @@
   text-align: right;
 }
 
+.crea .cart_totals table.shop_table .woocommerce-shipping-totals td,
+.crea #order_review table.shop_table .woocommerce-shipping-totals td {
+  flex: 1 1 100%;
+  text-align: left;
+}
+
 .crea .woocommerce-shipping-methods {
   display: flex;
   flex-direction: column;
   margin: 0;
-  gap: var(--space-xs);
+  padding: 0;
+  gap: var(--space-s);
   list-style: none;
   text-transform: none;
 }
 
-.crea .woocommerce-shipping-methods li {
+.crea #shipping_method li {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--space-xs);
+  align-items: flex-start;
+  margin: 0;
+  gap: var(--space-s);
+}
+
+.crea #shipping_method input {
+  flex: none;
+  width: var(--radio-size);
+  height: var(--radio-size);
+  margin: 0;
+  accent-color: var(--bg);
+}
+
+.crea #shipping_method label {
+  font-weight: var(--weight-medium);
+  line-height: var(--radio-size);
+  cursor: pointer;
+}
+
+.crea #shipping_method .amount {
+  font-weight: var(--weight-bold);
+  white-space: nowrap;
 }
 
 .crea .woocommerce-shipping-destination,
@@ -1045,9 +1117,13 @@
   border: 0;
 }
 
-.crea #payment .payment_methods > li {
+.crea #payment .payment_methods > li.wc_payment_method {
+  display: grid;
+  grid-template-columns: var(--radio-size) minmax(0, 1fr);
+  align-items: center;
   margin: 0;
   padding: var(--space-m);
+  gap: 0 var(--space-s);
   background-color: var(--fg);
   border: var(--stroke-thin) solid var(--bg);
 }
@@ -1060,9 +1136,9 @@
   position: static;
   width: var(--radio-size);
   height: var(--radio-size);
-  margin: 0 var(--space-s) 0 0;
+  margin: 0;
   clip: auto;
-  vertical-align: middle;
+  clip-path: none;
   accent-color: var(--bg);
 }
 
@@ -1072,20 +1148,24 @@
 }
 
 .crea #payment .payment_methods li label {
+  display: block;
+  margin: 0;
+  padding: 0;
   font-family: var(--font-buttons);
   font-size: var(--size-label);
   font-weight: var(--weight-bold);
   cursor: pointer;
 }
 
-.crea #payment .payment_box {
+.crea #payment .payment_methods li .payment_box {
+  grid-column: 2;
   margin: var(--space-xs) 0 0;
-  padding: 0 0 0 calc(var(--radio-size) + var(--space-s));
+  padding: 0;
   font-size: var(--size-small);
   background-color: transparent;
 }
 
-.crea #payment .payment_box::before {
+.crea #payment .payment_methods li .payment_box::before {
   display: none;
 }
 
@@ -1100,6 +1180,7 @@
   padding: 0;
   gap: var(--space-m);
   font-size: var(--size-small);
+  background-color: transparent;
 }
 
 .crea #payment #place_order {
@@ -1447,7 +1528,11 @@
   }
 
   .crea table.cart .product-remove {
-    justify-self: end;
+    justify-self: stretch;
+  }
+
+  .crea table.cart td.product-remove a.remove {
+    width: 100%;
   }
 
   .crea .woocommerce-billing-fields__field-wrapper .form-row-first,
