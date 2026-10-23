@@ -53,12 +53,21 @@ function crea_legacy_pickup_box( $heading = 'h3' ) {
 	);
 }
 
+function crea_legacy_checkout_pickup_html() {
+	return '<div class="pickup-slot">' . ( crea_legacy_cart_is_pickup() ? crea_legacy_pickup_box() : '' ) . '</div>';
+}
+
 function crea_legacy_checkout_pickup() {
-	if ( crea_legacy_cart_is_pickup() ) {
-		echo crea_legacy_pickup_box();
-	}
+	echo crea_legacy_checkout_pickup_html();
 }
 add_action( 'woocommerce_review_order_before_payment', 'crea_legacy_checkout_pickup' );
+
+function crea_legacy_checkout_pickup_fragment( $fragments ) {
+	$fragments['.pickup-slot'] = crea_legacy_checkout_pickup_html();
+
+	return $fragments;
+}
+add_filter( 'woocommerce_update_order_review_fragments', 'crea_legacy_checkout_pickup_fragment' );
 
 function crea_legacy_thankyou_pickup( $order_id ) {
 	$order = wc_get_order( $order_id );
