@@ -19,7 +19,7 @@ Thème enfant de Storefront pour le click & collect Emilie and the Cool Kids. Il
 | 4 | Groupe de champs SCF **Infos produit** (Composition, Allergènes, Valeurs nutritionnelles), affiché avant le prix | `acf-json/group_crea_product_infos.json`, `inc/product-fields.php`, `template-parts/product/infos.php` |
 | 5 | Panier : mise à jour auto des quantités, lien « Retirer du panier » | `woocommerce/cart/cart.php`, `assets/js/cart.js` |
 | 6 | Bloc « Instructions pour le retrait » au checkout (affiché ou masqué en direct selon le mode de livraison choisi) et sur la page merci, texte dans le groupe SCF **Retrait en boutique** | `acf-json/group_crea_pickup.json`, `inc/pickup.php` |
-| 7 | Espace client : menu en tutoiement, accueil du compte | `inc/account.php` |
+| 7 | Espace client : menu en tutoiement, accueil du compte, formulaire « Mon profil » valide W3C | `inc/account.php`, `woocommerce/myaccount/form-edit-account.php` |
 | 8 | E-mails aux couleurs : logo, bandeau, pied de page, instructions de retrait | `woocommerce/emails/`, `inc/emails.php` |
 | 9 | Statut « Prête à retirer », e-mail associé, suivi de commande (merci + Mon compte) | `inc/orders.php`, `inc/class-crea-legacy-email-ready-pickup.php`, `template-parts/order/` |
 | 10 | Libellé « Code promo », messages des codes en tutoiement | `inc/promotions.php` |
