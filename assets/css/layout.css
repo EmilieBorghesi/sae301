@@ -241,7 +241,9 @@
 }
 
 .franchise__text {
+  font-family: var(--font-buttons);
   font-size: var(--size-medium);
+  font-weight: var(--weight-regular);
   line-height: var(--line-body);
 }
 

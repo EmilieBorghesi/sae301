@@ -16,7 +16,7 @@ if ( ! $crea_title ) {
 				<div class="franchise__text"><?php echo wp_kses_post( wpautop( $crea_text ) ); ?></div>
 			<?php endif; ?>
 			<?php if ( $crea_url ) : ?>
-				<a class="btn btn--white btn--small franchise__btn" href="<?php echo esc_url( $crea_url ); ?>"><?php echo esc_html( crea_legacy_mod( 'franchise_label' ) ); ?></a>
+				<a class="btn btn--white franchise__btn" href="<?php echo esc_url( $crea_url ); ?>"><?php echo esc_html( crea_legacy_mod( 'franchise_label' ) ); ?></a>
 			<?php endif; ?>
 		</div>
 		<?php if ( $crea_image ) : ?>

@@ -5,6 +5,8 @@ function crea_legacy_defaults() {
 		'menu_text'       => __( 'Click & Collect disponible !', 'crea-legacy' ),
 		'franchise_title' => __( 'Deviens franchisé du plus cool des coffee shops', 'crea-legacy' ),
 		'franchise_label' => __( 'Ouvre une franchise', 'crea-legacy' ),
+		'franchise_text'  => __( 'Les études le montrent : 100 % des personnes ayant quitté leur emploi pour se lancer dans la confection de cookies sont plus heureux et vivent plus longtemps ! Pourquoi ? Parce que se lancer dans une aventure gourmande, humaine et pleine de sens comme Emilie and the Cool Kids, c’est bien plus qu’un simple projet professionnel. C’est un mode de vie !', 'crea-legacy' ),
+		'franchise_url'   => 'mailto:franchise@emiliescookies.test',
 	);
 }
 
@@ -19,7 +21,7 @@ function crea_legacy_mod( $key ) {
 	$defaults = crea_legacy_defaults();
 	$value    = function_exists( 'get_field' ) ? get_field( 'crea_' . $key, crea_legacy_mod_source( $key ) ) : null;
 
-	return null === $value ? ( $defaults[ $key ] ?? '' ) : $value;
+	return null === $value || '' === $value ? ( $defaults[ $key ] ?? '' ) : $value;
 }
 
 function crea_legacy_asset( $path ) {

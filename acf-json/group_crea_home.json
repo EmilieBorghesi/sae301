@@ -144,7 +144,7 @@
             "name": "crea_franchise_text",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Texte affiché en Raleway sous le titre. Vide : texte par défaut du thème.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -154,7 +154,7 @@
             },
             "rows": 4,
             "new_lines": "",
-            "default_value": "",
+            "default_value": "Les études le montrent : 100 % des personnes ayant quitté leur emploi pour se lancer dans la confection de cookies sont plus heureux et vivent plus longtemps ! Pourquoi ? Parce que se lancer dans une aventure gourmande, humaine et pleine de sens comme Emilie and the Cool Kids, c’est bien plus qu’un simple projet professionnel. C’est un mode de vie !",
             "maxlength": "",
             "placeholder": ""
         },
@@ -184,7 +184,7 @@
             "name": "crea_franchise_url",
             "aria-label": "",
             "type": "url",
-            "instructions": "",
+            "instructions": "Vide : le bouton ouvre un e-mail à franchise@emiliescookies.test (adresse fictive à remplacer).",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -244,5 +244,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1792629666
+    "modified": 1792760428
 }
