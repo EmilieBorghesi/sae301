@@ -79,7 +79,7 @@ function crea_legacy_thankyou_pickup( $order_id ) {
 add_action( 'woocommerce_thankyou', 'crea_legacy_thankyou_pickup', 10 );
 
 function crea_legacy_email_pickup( $order, $sent_to_admin, $plain_text ) {
-	if ( $sent_to_admin || ! crea_legacy_order_is_pickup( $order ) || in_array( $order->get_status(), array( 'cancelled', 'refunded', 'failed' ), true ) ) {
+	if ( $sent_to_admin || ! crea_legacy_order_is_pickup( $order ) || in_array( $order->get_status(), array( 'completed', 'cancelled', 'refunded', 'failed' ), true ) ) {
 		return;
 	}
 
