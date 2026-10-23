@@ -431,6 +431,13 @@
   gap: var(--space-l) var(--space-s);
 }
 
+.crea.single-product div.product form.cart::before,
+.crea.single-product div.product form.cart::after,
+.crea.single-product div.product .woocommerce-variation-add-to-cart::before,
+.crea.single-product div.product .woocommerce-variation-add-to-cart::after {
+  display: none;
+}
+
 .crea.single-product div.product form.cart .quantity {
   float: none;
   margin: 0;
