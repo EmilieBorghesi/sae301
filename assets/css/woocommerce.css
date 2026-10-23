@@ -88,6 +88,21 @@
   font-size: var(--size-small);
 }
 
+.crea .woocommerce-message .button,
+.crea .woocommerce-info .button,
+.crea .woocommerce-error .button,
+.crea .woocommerce-noreviews .button {
+  border-left-color: var(--bg) !important;
+}
+
+.crea .woocommerce-message .button:hover,
+.crea .woocommerce-info .button:hover,
+.crea .woocommerce-error .button:hover,
+.crea .woocommerce-noreviews .button:hover {
+  opacity: 1;
+  border-left-color: var(--pink-300) !important;
+}
+
 .crea .onsale {
   position: absolute;
   top: var(--space-s);
